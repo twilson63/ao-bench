@@ -1,0 +1,10 @@
+{
+  "name": "ao-bench",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@permaweb/aoconnect": "^0.0.59"
+  }
+}
