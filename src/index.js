@@ -25,7 +25,7 @@ async function main() {
         message: id
       })
       const now = new Date()
-      console.log((now - t - LATENCY) / 1000)
+      if (i !== 0) { console.log((now - t - LATENCY) / 1000) }
       t = now
     }
 
