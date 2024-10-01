@@ -1,30 +1,32 @@
 import { connect, createDataItemSigner } from '@permaweb/aoconnect'
 import fs from 'fs'
 
-
+const BENCH = 7
+const CYCLE = 70
+const LATENCY = 600
 const PROCESS = "Ey3LbDWBhAEyOZ_TIPHVKK9_wMHikwPRfCROOiVuh0A"
 const jwk = JSON.parse(fs.readFileSync('wallet.json', 'utf-8'))
 
 async function main() {
   let t = new Date();
   let id = null;
-  for (var i = 0; i < 70; i++) {
-    
+  for (var i = 0; i < CYCLE; i++) {
+
     id = await connect().message({
       process: PROCESS,
       data: "1234",
       tags: [],
       signer: createDataItemSigner(jwk)
     })
-    if (i % 7 === 0) {
-      
+    if (i % BENCH === 0) {
+
       await connect().result({
         process: PROCESS,
         message: id
       })
-      console.log(((new Date()) - t) / 1000)
-      t = new Date()
-      //console.log(new Date())
+      const now = new Date()
+      console.log((now - t - LATENCY) / 1000)
+      t = now
     }
 
   }
