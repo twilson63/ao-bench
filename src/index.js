@@ -4,7 +4,7 @@ import fs from 'fs'
 const BENCH = 7
 const CYCLE = 70
 const LATENCY = 600
-const PROCESS = "Ey3LbDWBhAEyOZ_TIPHVKK9_wMHikwPRfCROOiVuh0A"
+const PROCESS = "MlmtDHo0GN-kCUcxEpJAfeSM1bCsb4JvjQlnjfJrOi4"
 const jwk = JSON.parse(fs.readFileSync('wallet.json', 'utf-8'))
 
 async function main() {
